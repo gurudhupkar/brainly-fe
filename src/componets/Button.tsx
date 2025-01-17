@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 interface buttonProps{
     variant:"primary" | "secondary";
-    text : String;
+    text : string;
     starticon : ReactElement;
 }
 const variantcolor ={
