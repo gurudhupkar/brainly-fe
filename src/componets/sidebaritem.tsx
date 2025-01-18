@@ -5,7 +5,7 @@ export function Sideitem({text,icon}:{
     text :string;
     icon:ReactElement})
  {
-    return <div className="flex text-gray-700 py-2">
+    return <div className="flex text-gray-700 py-2 cursor-pointer hover:bg-gray-200 rounded max-w-48 pl-4 tranistion-all duration-150">
         <div className="pr-2">
         {icon}
         </div>
