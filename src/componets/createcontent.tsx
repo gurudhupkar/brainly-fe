@@ -12,9 +12,9 @@ export function Createcontentmodel({open ,onClose}){
         {open &&<div className="w-screen h-screen bg-slate-700 fixed top-0 left-0 opacity-60 flex justify-center">
             <div className="flex flex-col justify-center">
                 <span className="opacity-100 bg-white p-4 rounded">
-                   <div className="flex justify-end">
+                   <div className="flex justify-end cursor-pointer">
                     <div onClick={onClose}>
-                    <Crossicon />
+                    <Crossicon  />
                     </div>
                  
 

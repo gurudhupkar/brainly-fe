@@ -4,6 +4,7 @@ interface buttonProps{
     variant:"primary" | "secondary";
     text : string;
     starticon : ReactElement;
+    onClick ?:()=> void ;
 }
 const variantcolor ={
     "primary":"bg-purple-600 text-white",
@@ -14,7 +15,7 @@ const defaultcolors = "px-4 py-2 rounded-md font-light flex items-center"
 
 export function Button (props:buttonProps)
 {
-    return <button className={variantcolor[props.variant] + " "+ defaultcolors
+    return <button onClick={props.onClick} className={variantcolor[props.variant] + " "+ defaultcolors
     }>
         <div className="pr-2">
         {props.starticon}
