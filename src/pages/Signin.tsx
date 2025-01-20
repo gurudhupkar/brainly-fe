@@ -23,10 +23,15 @@ export function Signin() {
         })
         const jwt= response.data.token;
         localStorage.setItem("token", jwt);
-        navigate("/dashboard")
+        
        
-        if (response.data.message){
+        if (response.data.error){
         alert(response.data.message)
+
+        }
+        else{
+            navigate("/dashboard")
+
         }
       
 
