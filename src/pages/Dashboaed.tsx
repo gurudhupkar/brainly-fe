@@ -5,12 +5,19 @@ import { Shareicon} from "../icons/shareicon"
 import { Plusicon } from "../icons/plusicon"
 import {Card} from "../componets/card"
 import { Createcontentmodel } from "../componets/createcontent"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Sidebar } from "../componets/sidebar"
+import { Usecontent } from "../hooks/usecontent"
 
 
 export function DashBoard() {
   const [modelopen , setclosemodel] = useState(false)
+  const {content ,refresh} = Usecontent();
+
+  useEffect(()=>{
+    refresh();
+  },[modelopen])
+
 
   return <div >
     <Sidebar />
@@ -29,10 +36,17 @@ export function DashBoard() {
    
    
 
-   <div className="flex gap-4">
+   <div className="flex gap-4 flex-wrap">
+   
 
-   <Card type="twitter" link="https://twitter.com/DhravyaShah/status/1790076222501797992?ref_src=twsrc%5Etfw" title="First Post" />
-   <Card type="youtube" link="https://www.youtube.com/watch?v=Cs2g2VFWtbo" title="First Video" />
+   {content.map(({type,title,link})=><Card 
+    type={type}
+    title={title}
+    link ={link} 
+    />
+   
+  
+  )}
 
    </div>
    
