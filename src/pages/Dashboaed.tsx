@@ -8,6 +8,7 @@ import { Createcontentmodel } from "../componets/createcontent"
 import { useEffect, useState } from "react"
 import { Sidebar } from "../componets/sidebar"
 import { Usecontent } from "../hooks/usecontent"
+import { Logout } from "../componets/logout"
 
 
 export function DashBoard() {
@@ -16,7 +17,7 @@ export function DashBoard() {
 
   useEffect(()=>{
     refresh();
-  },[modelopen])
+  },[])
 
 
   return <div >
@@ -32,6 +33,7 @@ export function DashBoard() {
     setclosemodel(true)
    }} variant="primary" text="Add Content"starticon={<Plusicon/>}></Button>
    <Button variant="secondary" text="Share-brain" starticon={<Shareicon/>}></Button>
+   <Logout />
     </div>
    
    

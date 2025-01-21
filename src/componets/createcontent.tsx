@@ -5,6 +5,7 @@ import { Input } from "./input";
 import { Button } from "./Button";
 import axios from "axios";
 import { Backend_URl } from "../config";
+import { Usecontent } from "../hooks/usecontent";
 
 enum contentype {
     Youtube = "youtube",
@@ -14,6 +15,7 @@ enum contentype {
 
 
 export function Createcontentmodel({open  ,onClose} :any) {
+    const {Setcontent} = Usecontent()
     const titleref = useRef<HTMLInputElement>();
     const linkref = useRef<HTMLInputElement>();
     const [type , Settype ] = useState(contentype.Youtube)

@@ -18,6 +18,7 @@ export function Usecontent()
             });
             if(response.data.content)
             {
+                console.log(response.data.content);
                 Setcontent(response.data.content);
             }
             else if(response.data.error){
@@ -33,17 +34,17 @@ export function Usecontent()
             console.log("Error" + error)
         }
     }
-    useEffect(()=>{
-        refresh();
-       let interval= setInterval(()=>{
-            refresh();
-        },5000)
-         return ()=>{
-            clearInterval(interval)
+    // useEffect(()=>{
+    //     refresh();
+    //    let interval= setInterval(()=>{
+    //         refresh();
+    //     },5000)
+    //      return ()=>{
+    //         clearInterval(interval)
 
-         }
-    },[])
-    return {content , refresh}
+    //      }
+    // },[])
+    return {content , refresh, Setcontent}
    }
 
   
