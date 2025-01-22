@@ -34,7 +34,7 @@ export function Signup ()
             alert(user.data.msg);
         }
         else{
-            navigate("/dashboard")
+            navigate("/signin");
         }
         
    

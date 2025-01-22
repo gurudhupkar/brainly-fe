@@ -9,6 +9,8 @@ import { useEffect, useState } from "react"
 import { Sidebar } from "../componets/sidebar"
 import { Usecontent } from "../hooks/usecontent"
 import { Logout } from "../componets/logout"
+import axios from "axios"
+import { Backend_URl } from "../config"
 
 
 export function DashBoard() {
@@ -17,9 +19,18 @@ export function DashBoard() {
 
   useEffect(()=>{
     refresh();
-  },[])
+  },[modelopen])
 
-
+  function copyToClipboard(text:any) {
+    navigator.clipboard.writeText(text)
+        .then(() => {
+           alert('Text copied to clipboard successfully');
+        })
+        .catch((error) => {
+            
+           alert ('Error copying text to clipboard:'+ error);
+        });
+}
   return <div >
     <Sidebar />
     <div className="p-4 ml-72 min-h-screen bg-gray-100 border-2">
@@ -32,7 +43,18 @@ export function DashBoard() {
    <Button onClick={()=>{
     setclosemodel(true)
    }} variant="primary" text="Add Content"starticon={<Plusicon/>}></Button>
-   <Button variant="secondary" text="Share-brain" starticon={<Shareicon/>}></Button>
+   <Button onClick={async()=>{
+    const response= await axios.post (`${Backend_URl}/api/v1/user/share`,{
+      share:true
+    },{
+      headers:{
+        "Authorization" : localStorage.getItem("token")
+      }
+    });
+    const shareurl = `http://http://localhost:5173/share/${response.data.hash}`
+     copyToClipboard(shareurl);
+     
+   }} variant="secondary" text="Share-brain" starticon={<Shareicon/>}></Button>
    <Logout />
     </div>
    
