@@ -6,6 +6,7 @@ import axios from "axios";
 export function Usecontent()
 {
     const [content,Setcontent] = useState([])
+    const [loading,setLoading] = useState(false)
 
    async function refresh()
    {
@@ -44,7 +45,7 @@ export function Usecontent()
 
     //      }
     // },[])
-    return {content , refresh, Setcontent}
+    return {content , refresh, Setcontent, loading,setLoading}
    }
 
   
