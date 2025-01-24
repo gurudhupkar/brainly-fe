@@ -1,3 +1,4 @@
+import { DashBoard1 } from "./componets/Dashboard1"
 import { DashBoard } from "./pages/Dashboaed"
 import { Signin } from "./pages/signin"
 import { Signup } from "./pages/Signup"
@@ -11,6 +12,7 @@ function App() {
     <Route path="/signup" element={<Signup />} />
     <Route path="/signin" element={<Signin />} />
     <Route path="/dashboard" element={<DashBoard />} />
+    <Route path="/share/:shareId" element={<DashBoard1/>} />
   </Routes>
   
   </BrowserRouter>
