@@ -1,3 +1,6 @@
+import { Deleteicon } from "../icons/Deleteicon";
+import { Docicon } from "../icons/docicon";
+import { Newtab } from "../icons/newtabicon";
 import { Shareicon } from "../icons/shareicon";
 
 
@@ -17,7 +20,7 @@ export function Card(props: cardprop) {
             <div className="flex justify-between">
                 <div className="flex items-center text-md">
                     <div className="text-gray-500 pr-2">
-                        <Shareicon />
+                      <Docicon />
                     </div>
                     {props.title}
 
@@ -26,11 +29,14 @@ export function Card(props: cardprop) {
                     <div className="pr-2 text-gray-500">
                         <a href={props.link} target="_blank">
 
-                            <Shareicon />
+                            <Newtab />
                         </a>
                     </div>
                     <div className=" text-gray-500">
-                        <Shareicon />
+                       
+                        <Deleteicon  />
+                  
+                       
                     </div>
 
                 </div>
