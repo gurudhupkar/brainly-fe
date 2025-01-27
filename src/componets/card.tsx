@@ -1,25 +1,29 @@
+import axios from "axios";
 import { Deleteicon } from "../icons/Deleteicon";
 import { Docicon } from "../icons/docicon";
 import { Newtab } from "../icons/newtabicon";
 import { Shareicon } from "../icons/shareicon";
+import { Backend_URl } from "../config";
 
 
 interface cardprop {
     title: string;
     link: string;
     type: "youtube" | "twitter" | "instagram"
+    id: string
 
 }
 
 
 
 export function Card(props: cardprop) {
-    return <div>
+  const contentId = props.id;
+  return <div>
         <div className=" p-4 bg-white rounded-md  border-gray-200 max-w-72 border min-h-48 min-w-72 ">
 
             <div className="flex justify-between">
                 <div className="flex items-center text-md">
-                    <div className="text-gray-500 pr-2">
+                    <div className="text-gray-500 pr-2 cursor-pointer">
                       <Docicon />
                     </div>
                     {props.title}
@@ -32,9 +36,40 @@ export function Card(props: cardprop) {
                             <Newtab />
                         </a>
                     </div>
-                    <div className=" text-gray-500">
+                    <div className=" text-gray-500 cursor-pointer" onClick={async()=>{
+                    try
+                    {
                        
-                        <Deleteicon  />
+
+                        const response = await axios.delete(`${Backend_URl}/api/v1/user/contents`, {
+
+                            data:{contentId},
+                            headers:{
+                                "Authorization": localStorage.getItem("token")
+                            }
+                        }, 
+
+                            
+                        );
+
+                        console.log(response.data);
+
+                        if(response.data.success)
+                        {
+                            alert("Ietm has been Deleted");
+                        }
+
+
+
+                    }
+                    catch(e)
+                    {
+                        console.log("something went wrong");
+                    }
+
+                    }}>
+                       
+                        <Deleteicon    />
                   
                        
                     </div>

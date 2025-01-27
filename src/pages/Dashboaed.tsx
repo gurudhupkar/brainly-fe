@@ -65,10 +65,11 @@ export function DashBoard() {
    <div className="flex gap-4 flex-wrap">
    
 
-   {content.map(({type,title,link})=><Card 
+   {content.map(({type,title,link,_id})=><Card 
     type={type}
     title={title}
     link ={link} 
+    id= {_id}
     />
    
   

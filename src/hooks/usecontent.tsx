@@ -19,7 +19,7 @@ export function Usecontent()
             });
             if(response.data.content)
             {
-                console.log(response.data.content);
+                console.log(response.data.content._id);
                 Setcontent(response.data.content);
             }
             else if(response.data.error){
