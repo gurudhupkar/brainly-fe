@@ -13,7 +13,7 @@ function App() {
     <Route path="/signin" element={<Signin />} />
     <Route path="/dashboard" element={<DashBoard />} />
     <Route path="/share/:shareId" element={<DashBoard1/>} />
-    <Route path="http://localhost:5173" element ={<Signup/>} />
+    <Route path="/" element ={<Signup/>} />
   </Routes>
   
   </BrowserRouter>
